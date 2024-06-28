@@ -1,0 +1,38 @@
+body{
+    background-color: cadetblue;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div>h1{
+    text-align: center;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: aquamarine;
+    border: none;
+    color: black;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    display: block;
+    
+}
+button:hover {
+    background-color: aliceblue;
+}
+input{
+    margin: 5px;
+    padding: 10px;
+    width: 120px;
+    border: 1px solid aquamarine;
+    border-radius: 4px;
+}
+li{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}

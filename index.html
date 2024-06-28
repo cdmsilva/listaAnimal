@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classes Lista Animais</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+ 
+    <div class="form-container">
+        <h1>Lista de Animais</h1>
+
+        <input type="text" id="nome" placeholder="Nome do Animal">
+        <input type="text" id="especie" placeholder="Espécie do Animal">
+        <input type="number" id="peso" placeholder="Peso do Animal">
+        <button onclick="adicionarAnimal()">Adicionar animal a lista</button>
+        <ul id="listaAnimal"></ul>
+    </div>
+    
+    <script>
+        class Animal{
+            constructor(nome,especie, peso){
+                this.nome = nome;
+                this.especie = especie;
+                this.peso = peso;
+            }
+
+            toString(){
+                return `${this.nome} da ${this.especie} tem ${this.peso} kilos.`
+            }
+        }
+
+        const animais = []
+
+        function adicionarAnimal(){
+            const nome = document.getElementById('nome').value;
+            const especie =document.getElementById('especie').value;
+            const peso = document.getElementById('peso').value;
+            
+            if(nome && especie && peso){
+                const novoAnimal = new Animal(nome,especie,peso);
+                animais.push(novoAnimal);
+                nome.value = '';
+                especie.value = '';
+                peso.value = '';
+                atualizarListaAnimal();
+                
+            }else{
+                alert("Preencha os campos corretamente")
+            }
+        }
+
+        function atualizarListaAnimal() {
+            const listaAnimal = document.getElementById('listaAnimal')
+            listaAnimal.innerHTML = '';
+            animais.forEach(animais =>{
+                const li = document.createElement('li');
+                li.innerHTML  = animais.toString();
+                listaAnimal.appendChild(li);
+            })
+        }
+
+    </script>
+</body>
+
+</html>
